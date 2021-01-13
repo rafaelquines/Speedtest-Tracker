@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    speedtest:
+        container_name: speedtest
+        image: speedtest-tracker:rpi
+        ports:
+            - 8765:80
+        volumes:
+            - ./data:/config
+        environment:
+            - OOKLA_EULA_GDPR=true
+        restart: unless-stopped
